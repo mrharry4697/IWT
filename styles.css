@@ -1,0 +1,475 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    width: 100%;
+    background: #2C3E50;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    background: linear-gradient(to right, #2C3E50, #34495E);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #E74C3C;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ECF0F1;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #E74C3C;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.7)), url('hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #E74C3C;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background: #C0392B;
+}
+
+/* About Section */
+.about {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.profiles {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.profile-card {
+    background: #ECF0F1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    border: 2px solid #3498DB;
+    background: linear-gradient(145deg, #ECF0F1, #BDC3C7);
+}
+
+.profile-card:hover {
+    transform: translateY(-10px);
+    background: linear-gradient(145deg, #34495E, #2C3E50);
+}
+
+.profile-card img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    margin-top: 15px;
+}
+
+.social-links a {
+    color: #2C3E50;
+    margin: 0 10px;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #E74C3C;
+}
+
+/* Projects Section */
+.projects {
+    background: #2C3E50;
+    padding: 100px 20px;
+    text-align: center;
+    color: #ECF0F1;
+}
+
+.game-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #34495E;
+    border-radius: 10px;
+    color: #ECF0F1;
+}
+
+#restart-btn {
+    padding: 10px 20px;
+    background: #E74C3C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#restart-btn:hover {
+    background: #C0392B;
+    box-shadow: 0 0 15px rgba(231, 76, 60, 0.5);
+}
+
+.memory-game {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    perspective: 1000px;
+}
+
+.memory-card {
+    position: relative;
+    height: 150px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transform: scale(1);
+    transition: transform 0.5s;
+}
+
+.memory-card:active {
+    transform: scale(0.95);
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    background: #34495E;
+    backface-visibility: hidden;
+    border: 2px solid #3498DB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    color: #ECF0F1;
+}
+
+.front-face {
+    transform: rotateY(180deg);
+    background: #E74C3C;
+}
+
+/* Responsive design for the game */
+@media (max-width: 768px) {
+    .memory-game {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .memory-card {
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .memory-game {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .memory-card {
+        height: 100px;
+    }
+}
+
+/* Contact Section */
+.contact {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+#contact-form {
+    max-width: 600px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#contact-form input,
+#contact-form textarea {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background: #ECF0F1;
+    border: 2px solid #3498DB;
+}
+
+#contact-form textarea {
+    height: 150px;
+}
+
+#contact-form button {
+    padding: 15px;
+    background: #E74C3C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+#contact-form button:hover {
+    background: #C0392B;
+}
+
+/* Footer */
+footer {
+    background: #2C3E50;
+    color: #ECF0F1;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .profiles {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    /* Enhanced mobile navigation */
+    .burger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .burger div {
+        width: 25px;
+        height: 3px;
+        background-color: #ECF0F1;
+        margin: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        height: calc(100vh - 70px);
+        background: #2C3E50;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 40px;
+        transition: right 0.5s ease;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+        opacity: 0;
+        animation: fadeIn 0.5s ease forwards;
+    }
+
+    /* Project grid adjustments */
+    .project-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+
+    /* Contact form adjustments */
+    #contact-form {
+        padding: 0 20px;
+    }
+}
+
+/* Add tablet-specific styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .profiles {
+        gap: 20px;
+    }
+
+    .profile-card {
+        width: 45%;
+    }
+}
+
+/* Enhanced Footer Styles */
+footer {
+    background: #2C3E50;
+    color: #ECF0F1;
+    padding: 40px 20px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    text-align: left;
+}
+
+.footer-section {
+    padding: 20px;
+}
+
+.footer-section h3 {
+    color: #E74C3C;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin: 10px 0;
+}
+
+.footer-section ul li a {
+    color: #ECF0F1;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #E74C3C;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #34495E;
+    text-align: center;
+}
+
+.social-icons {
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    color: #ECF0F1;
+    margin: 0 10px;
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #E74C3C;
+}
+
+/* Add animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add these new style rules for better visual hierarchy */
+h2 {
+    color: #E74C3C;
+    font-size: 2.5em;
+    margin-bottom: 1em;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #3498DB;
+}
+
+/* Add a glow effect to buttons on hover */
+.cta-button:hover,
+#contact-form button:hover {
+    box-shadow: 0 0 15px rgba(231, 76, 60, 0.5);
+} 
